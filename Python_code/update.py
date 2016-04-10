@@ -1,6 +1,7 @@
 __author__ = 'nrot'
 
 # -*- coding: utf-8 -*-
+# coding: utf8
 
 # !C:\Python34
 from tornado import gen
@@ -31,7 +32,8 @@ class UpdateMessage(tornado.web.RequestHandler):
         try:
             self.connect_mysql = mysql.connector.connect(host="localhost", database=options["data_base_name"],
                                                          user=options["user_db"],
-                                                         password=options["password_db"])
+                                                         password=options["password_db"],
+                                                         charset='utf8')
             self.cursor = self.connect_mysql.cursor()
 
         except:
@@ -87,7 +89,7 @@ class UpdateMessage(tornado.web.RequestHandler):
                 nicks += '"{nick}",'.format(nick=nick)
                 print(messages[i][1])
                 try:
-                    messages_part += '"{me}",'.format(me=messages[i][1].decode("utf-8"))
+                    messages_part += '"{me}",'.format(me=messages[i][1])#.decode("utf-8"))
                 except:
                     messages_part += '"{me}",'.format(me=messages[i][1])
             if nicks[len(nicks) - 1] == ",":

@@ -1,10 +1,11 @@
 __author__ = 'nrot'
 
 # -*- coding: utf-8 -*-
+# coding: utf8
 
 # !C:\Python34
 
-import pickle
+import pickle, json
 import tornado.web
 import tornado.escape
 from tornado import gen
@@ -31,7 +32,8 @@ class NewMessage(tornado.web.RequestHandler):
         try:
             self.connect_mysql = mysql.connector.connect(host="localhost", database=options["data_base_name"],
                                                          user=options["user_db"],
-                                                         password=options["password_db"])
+                                                         password=options["password_db"],
+                                                         charset='utf8')
             self.cursor = self.connect_mysql.cursor()
 
         except:
@@ -57,7 +59,8 @@ class NewMessage(tornado.web.RequestHandler):
         user_id = user_id[0]
         sql = "insert into {chat} (user_unique_id, user_text, message_time) values({user_id},'{text}' , now());".format(
             text=data["message"], user_id=user_id, chat=data["chat"])
-        print(sql)
+        print(data["message"])
+        #print(sql)
         self.cursor.execute(sql)
         self.write('{"error":"0"}')
         self.cursor.execute("commit;")

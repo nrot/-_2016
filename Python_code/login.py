@@ -1,5 +1,7 @@
 __author__ = 'nrot'
 
+# -*- coding: utf-8 -*-
+
 import tornado.web
 import pickle
 from tornado import gen
@@ -20,7 +22,8 @@ class Login(tornado.web.RequestHandler):
         try:
             self.connect_mysql = mysql.connector.connect(host="localhost", database=options["data_base_name"],
                                                          user=options["user_db"],
-                                                         password=str(options["password_db"]))
+                                                         password=str(options["password_db"]),
+                                                         charset='utf8')
             self.cursor = self.connect_mysql.cursor()
 
         except:
@@ -45,7 +48,7 @@ class Login(tornado.web.RequestHandler):
             errors[1] = style_error
 
         if error:
-            self.render("../templates/login.html", stules=errors)
+            self.render("../templates/login.html", styles=errors)
         else:
             self.set_cookie("nick_name", nick)
             self.set_cookie("last_message", "0")

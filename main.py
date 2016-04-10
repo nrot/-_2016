@@ -14,6 +14,8 @@ import Python_code.login
 import Python_code.registration
 # import Python_code.chat
 
+# -*- coding: utf-8 -*-
+
 if __name__ == "__main__":
     try:
         file_option = open("options.json")

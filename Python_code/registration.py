@@ -1,5 +1,7 @@
 __author__ = 'nrot'
 
+# -*- coding: utf-8 -*-
+
 import tornado.web
 from tornado import gen
 import pickle
@@ -20,8 +22,11 @@ class Registration(tornado.web.RequestHandler):
             options = pickle.load(f)
 
         try:
-            self.connect_mysql = mysql.connector.connect(host="localhost", database=options["data_base_name"], user=options["user_db"],
-                                                         password=options["password_db"])
+            self.connect_mysql = mysql.connector.connect(host="localhost",
+                                                         database=options["data_base_name"],
+                                                         user=options["user_db"],
+                                                         password=options["password_db"],
+                                                         charset='utf8')
             self.cursor = self.connect_mysql.cursor()
 
         except:

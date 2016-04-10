@@ -35,7 +35,7 @@ function renderMassage(data, status_text, jqXHR){
   nicks.forEach(function(item, i, nicks){
     var m0 = document.createElement('div');
     m0.setAttribute('class', 'one_message')
-    m0.innerHTML = '<div class="nick_in_one_message">'+message.nicks[i]+"</div>"+'<div class="text_in_one_message">'+message.messages[i]+"</div>";
+    m0.innerHTML = '<div class="nick_in_one_message">'+message.nicks[i]+"</div>"+'<div class="text_in_one_message">'+unescape(message.messages[i])+"</div>";
     document.getElementById('messages_' + message.chat).appendChild(m0)
   });
   setTimeout(updateMessage(), 100);
