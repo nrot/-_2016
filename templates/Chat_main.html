@@ -1,0 +1,66 @@
+﻿<head>
+    <script language="javascript" type="text/javascript" src="{{ static_url('script/init.js') }}">
+    </script>
+    <script language="javascript" type="text/javascript" src="{{ static_url('script/chat.js') }}">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js">
+    </script>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link href="{{ static_url('css_style/styles.css') }}" rel="stylesheet">
+</head>
+<body onload="initCookie();time_update = 2000;updateMessage();">
+<h1>Chat</h1>
+<div id="main_tabs" class="main_tabs">
+    <div class="list_tabs" id="list_of_tabs">
+        <div class="active_tab" id="id_1">
+            Main chat
+        </div>
+        <div class="passive_tab" id="id_2">
+            Second chat
+        </div>
+    </div>
+    <div id="tabs_inner" style="height: 80%;">
+        <div class="active_chat" id="chat_id_1">
+            <div id="messages_id_1" class="messages">
+                <div class="one_message">
+                    <div class="nick_in_one_message">
+                        Nrot
+                    </div>
+                    <div class="text_in_one_message">
+                        Some Text!
+                    </div>
+                </div>
+            </div>
+            <div class="user_in_chat" id="users_in_chat">
+                <div class="one_nick"> Nrot </div>
+            </div>
+        </div>
+        <div class="passive_chat" id="chat_id_2">
+            <div class="one_message">
+                <div class="nick_in_one_message">
+                    Nrot
+                </div>
+                <div class="text_in_one_message">
+                    Some Text!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form name="text" action="/sgi-bin/chat.py">
+    <textarea autofocus=true id="in_text" cols=100% rows=auto></textarea></br>
+    <input type="button" value="submit" onclick="callServer()">
+</form>
+<!--<table>
+    <thead>
+    <tr>
+        <td>Nickname</td>
+        <td>Message</td>
+    </tr>
+    </thead>
+    <tbody id="messages">
+        <tr><td>Server</td><td>Hello World!</td></tr>
+    </tbody>
+</table>-->
+</body>

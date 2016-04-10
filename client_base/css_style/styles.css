@@ -1,0 +1,104 @@
+.button, .registration_button, .login_button{
+    background: black linear-gradient(black, gray);
+    border-radius: 5px;
+    padding: 10%;
+    margin: 2%;
+    display: inline-block;
+    box-shadow: 0 0 1% black;
+    text-decoration: none;
+    color: black;
+    overflow-y: auto;
+    height: 80%;
+}
+
+.login_button{
+    background: #04D500 linear-gradient(#04E600, #03B300);
+}
+.registration_button{
+    background: #BC0000 linear-gradient(#D10000, #A90000);
+}
+
+.center_div{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.center_body{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: center;
+    &:before {
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+    }
+}
+
+.list_tabs{
+    overflow: hidden;
+    overflow-x: scroll;
+    background: white;
+    white-space:nowrap;
+}
+
+.active_tab, .passive_tab{
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+}
+
+.active_tab{
+    background: RGBA(100, 100, 100, 0.8);
+}
+.passive_tab{
+    background: RGBA(255, 255, 255, 0.8);
+}
+
+.active_chat{
+    display: block;
+}
+
+.passive_chat{
+    display: none;
+}
+
+.one_message{
+    width: 100%;
+}
+
+.text_in_one_message{
+    width: 90%;
+    float: right;
+}
+
+.nick_in_one_message{
+    width: 10%;
+    float: left;
+}
+
+.user_in_chat{
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+.messages{
+    overflow-y: auto;
+    float: left;
+    width: 90%;
+    height: 100%;
+}
+
+.user_in_chat{
+    float: right;
+    width: 10%;
+}
+
+.main_tabs{
+    display: block;
+}

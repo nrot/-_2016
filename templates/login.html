@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link href="{{static_url('css_style/styles.css')}}" rel="stylesheet">
+</head>
+<body class="center_body">
+<div class="center_div">
+    <h1>Login in</h1>
+
+    <form name="in_nick" action="login" method="post">
+        <p {{styles[0]}}>Login: <input type="text" id="in_nick" name="nick"></p>
+
+        <p {{styles[1]}}>Password: <input type="password" id="password" name="password"></p>
+        <input type="submit" value="submit">
+    </form>
+</div>
+</body>
+</html>
